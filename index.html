@@ -4,18 +4,7 @@
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="shortcut icon" href="favicon.png">
-    <!-- ######################################################################
-        .oooooo..o                     o8o                 .
-       d8P'    `Y8                     `"'               .o8
-       Y88bo.       .ooooo.  oooo d8b oooo  oo.ooooo.  .o888oo  .oooo.o
-        `"Y8888o.  d88' `"Y8 `888""8P `888   888' `88b   888   d88(  "8
-            `"Y88b 888        888      888   888   888   888   `"Y88b.
-       oo     .d8P 888   .o8  888      888   888   888   888 . o.  )88b
-       8""88888P'  `Y8bod8P' d888b    o888o  888bod8P'   "888" 8""888P'
-                                             888
-                                            o888o
-     ###################################################################### -->    
+    <link rel="shortcut icon" href="favicon.png">  
     <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
@@ -39,91 +28,7 @@ body /shadow-deep/ [touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action
 body /shadow-deep/ [touch-action="pan-x pan-y"],body /shadow-deep/ [touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
 </style>
     <script src="./js/main.js"></script>
-
-    <template class="template">
-        <div class="card">
-            <div class="card-heading">
-                <div class="card-icon-wrap">
-                    <img class="card-icon">
-                </div>
-                <h3 class="card-title"></h3>
-            </div>
-            <div class="card-specs">
-                <p class="card-source"></p>
-                <p class="card-time"></p>
-            </div>
-        </div>
-
-    </template><template class="template-description">
-    <p class="card-description card-description_big description_critical">Робопылесос не смог сменить свое местоположение в течение последних 3 минут. Похоже, ему нужна помощь.
-    <div class="critical-cam" onload="initCriticalCam()" touch-action="none">
-
-    </div>
-
-    </p>
-</template><template class="template-cam"></template><template class="template-graph">
-    <div class="card-data card-data_graph">
-        <img class="card-data_graph-img" src="img/Richdata@3x.png">
-    </div>
-</template><template class="template-climat">
-    <div class="card-data card-data_climat">
-        <div class="climat-block">
-            Температура: <em class="climat-block_data climat-block_data__temp">24 C</em>
-        </div>
-        <div class="climat-block hum-block">
-            Влажность: <em class="climat-block_data climat-block_data__hum">80%</em>
-        </div>
-    </div>
-</template><template class="template-music">
-    <div class="card-data card-data_music">
-
-        <div class="song-area">
-            <div class="cover-wrap">
-                <img class="cover" src="https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000">
-            </div>
-
-            <div class="song-data">
-                <h4 class="song-title">Florence &amp; The Machine - Big God</h4>
-                <div class="song-timeline-wrap">
-                    <input type="range" class="song-range" name="song-range" min="0" max="100" value="" step="1">
-                    <div class="song-length">4:31</div>
-                </div>
-            </div>
-        </div>
-        <div class="player-controls">
-            <button class="player-control player-control_prev">
-                <img src="img/Prev.svg">
-            </button>
-            <button class="player-control player-control_next">
-                <img src="img/Prev.svg">
-            </button>
-
-            <input type="range" class="volume-range" name="volume-range" min="0" max="100" value="50" step="1">
-            <div class="song-volume">80%</div>
-        </div>
-
-
-
-    </div>
-</template><template class="template-buttons">
-
-    <div class="buttons-wrap"></div>
-
-</template></head>
-
-<!-- ######################################################################
-            oooooooooo.                  .o8
-            `888'   `Y8b                "888
-             888     888  .ooooo.   .oooo888  oooo    ooo
-             888oooo888' d88' `88b d88' `888   `88.  .8'
-             888    `88b 888   888 888   888    `88..8'
-             888    .88P 888   888 888   888     `888'
-            o888bood8P'  `Y8bod8P' `Y8bod88P"     .8'
-                                              .o..P'
-                                              `Y8P'
-     ###################################################################### -->
-
-
+</head>
 <body><div class="video-controls">
     <div class="video-controls-wrap">
         <p class="controls-text">Яркость</p>
@@ -132,15 +37,6 @@ body /shadow-deep/ [touch-action="pan-x pan-y"],body /shadow-deep/ [touch-action
         <input type="range" class="volume-range video-control video-control_contrast" name="video-contrast-range" min="0" max="200" value="100" step="1">
     </div>
 </div>
-<!-- ######################################################################
-     ooo        ooooo
-     `88.       .888'
-      888b     d'888   .ooooo.  ooo. .oo.   oooo  oooo
-      8 Y88. .P  888  d88' `88b `888P"Y88b  `888  `888
-      8  `888'   888  888ooo888  888   888   888   888
-      8    Y     888  888    .o  888   888   888   888
-     o8o        o888o `Y8bod8P' o888o o888o  `V88V"V8P'
-  ###################################################################### -->
 <header>
     <img class="header-logo" src="img/yd2.png">
     <menu class="header-menu">
@@ -152,9 +48,6 @@ body /shadow-deep/ [touch-action="pan-x pan-y"],body /shadow-deep/ [touch-action
     </menu>
 
     <svg class="header-menu__switcher" width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
-        <title>icon_list_m</title>
-        <desc>Created with Sketch.</desc>
         <defs>
             <path d="M0,3.32630157 C0,2.77790036 0.444630861,2.33333333 1.00087166,2.33333333 L14.9991283,2.33333333 C15.5518945,2.33333333 16,2.7736791 16,3.32630157 L16,4.00703176 C16,4.55543298 15.5553691,5 14.9991283,5 L1.00087166,5 C0.448105505,5 0,4.55965424 0,4.00703176 L0,3.32630157 Z M0,8.65963491 C0,8.11123369 0.444630861,7.66666667 1.00087166,7.66666667 L14.9991283,7.66666667 C15.5518945,7.66666667 16,8.10701243 16,8.65963491 L16,9.34036509 C16,9.88876631 15.5553691,10.3333333 14.9991283,10.3333333 L1.00087166,10.3333333 C0.448105505,10.3333333 0,9.89298757 0,9.34036509 L0,8.65963491 Z M0,13.9929682 C0,13.444567 0.444630861,13 1.00087166,13 L14.9991283,13 C15.5518945,13 16,13.4403458 16,13.9929682 L16,14.6736984 C16,15.2220996 15.5553691,15.6666667 14.9991283,15.6666667 L1.00087166,15.6666667 C0.448105505,15.6666667 0,15.2263209 0,14.6736984 L0,13.9929682 Z" id="path-1"></path>
         </defs>
@@ -170,15 +63,6 @@ body /shadow-deep/ [touch-action="pan-x pan-y"],body /shadow-deep/ [touch-action
         </g>
     </svg>
 </header>
-<!-- ######################################################################
-  .oooooo.                             .                             .
- d8P'  `Y8b                          .o8                           .o8
-888           .ooooo.  ooo. .oo.   .o888oo  .ooooo.  ooo. .oo.   .o888oo
-888          d88' `88b `888P"Y88b    888   d88' `88b `888P"Y88b    888
-888          888   888  888   888    888   888ooo888  888   888    888
-`88b    ooo  888   888  888   888    888 . 888    .o  888   888    888 .
- `Y8bood8P'  `Y8bod8P' o888o o888o   "888" `Y8bod8P' o888o o888o   "888"
- ###################################################################### -->
 <div class="wrap">
 
     <div class="switch-block switch-block_active" data="feed">
