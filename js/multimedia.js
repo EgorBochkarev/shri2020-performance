@@ -1,6 +1,6 @@
 (function(w, d, n) {
     var s = d.createElement('script');
-    s.src = '//zen.yandex.ru/widget-loader';
+    s.src = '//yastatic.net/s3/zen-lib/widget-loader/widget-loader.ver_2.js';
     d.head.appendChild(s);
     var c = d.createElement('div');
     c.style.display = 'none';
