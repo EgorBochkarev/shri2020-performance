@@ -57,10 +57,6 @@ body {
   background-color: #fff;
 }
 
-[tabindex="-1"]:focus {
-  outline: 0 !important;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -71,14 +67,6 @@ p {
   margin-bottom: 1rem;
 }
 
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: underline;
-  text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: 0;
-  text-decoration-skip-ink: none;
-}
 ol,
 ul,
 dl {
@@ -104,10 +92,6 @@ a:not([href]):not([tabindex]) {
 a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
   color: inherit;
   text-decoration: none;
-}
-
-a:not([href]):not([tabindex]):focus {
-  outline: 0;
 }
 
 img {
@@ -171,51 +155,11 @@ button::-moz-focus-inner,
   border-style: none;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
-  -webkit-appearance: listbox;
-}
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-[type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: none;
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
-}
-
-[hidden] {
-  display: none !important;
-}
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-}
-
-h1, .h1 {
-  font-size: 2.5rem;
 }
 
 h2, .h2 {
@@ -228,14 +172,6 @@ h3, .h3 {
 
 h4, .h4 {
   font-size: 1.5rem;
-}
-
-h5, .h5 {
-  font-size: 1.25rem;
-}
-
-h6, .h6 {
-  font-size: 1rem;
 }
 
 .purchase-list__item + .purchase-list__item {
