@@ -23380,17 +23380,7 @@
         e.__esModule = !0;
         var n = i(20)
             , o = i(16);
-        e.isNewPoster = function(t) {
-            var e = {
-                host: t
-            }
-                , i = o.some([/smi2\.ru/i, /drive\.ru/i, /drive2\.ru/i, /mail\.yandex\.ru/i, /politfox\.ru/i], function(e) {
-                return e.test(t)
-            });
-            return !!o.some([/^mail\.rambler\.ru/i, /^tv\.yandex\.ru/i], function(e) {
-                return e.test(t)
-            }) || !i && !n.isHostIgnored(e)
-        }
+        e.isNewPoster = function(t) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -23408,10 +23398,7 @@
             "1024x768": "480x320",
             "768x1024": "320x480"
         };
-        t.exports = function(t, e, i) {
-            var o = t.width + "x" + t.height;
-            this.createFormatObject(n[o] || o, i)
-        }
+        t.exports = function(t, e, i) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -23428,108 +23415,7 @@
                 default: t
             }
         }
-        t.exports = function(t, e, i) {
-            var d;
-            this.getSettings = function() {
-                return e || {}
-            }
-                ,
-                this._onAdAbused = null,
-                this.setAbuseHandler = function(t) {
-                    this._onAdAbused = t
-                }
-                ,
-                this.abuseAd = function(t) {
-                    this._onAdAbused && (0,
-                        s.isFunction)(this._onAdAbused) && this._onAdAbused(t)
-                }
-                ,
-                this.hasSearchText = function() {
-                    return i.searchText
-                }
-                ,
-                this.getSize = function() {
-                    var e = t.rtb
-                        , i = e.width
-                        , n = e.height;
-                    return [0 == i ? "100%" : i, n]
-                }
-                ,
-                this.getUrl = function() {
-                    return t.rtb.url
-                }
-                ,
-                this.getHtml = function() {
-                    return !d && t && t.rtb && t.rtb.html && (d = (0,
-                        l.decode)(t.rtb.html)),
-                        d
-                }
-                ,
-                this.isApp = function() {
-                    return t.common && "1" == t.common.isMobileSdk
-                }
-                ,
-                this.getLinkTail = function() {
-                    return this.getSettings().linkTail
-                }
-                ,
-                this.hasIntersectionVisibility = function() {
-                    return Boolean(Number(this.getSettings().intersectionVisibility))
-                }
-                ,
-                this.getViewNotices = function() {
-                    var t = []
-                        , e = this.getSettings();
-                    return e.viewNotices && e.viewNotices.length && (t = t.concat(e.viewNotices)),
-                    "string" == typeof e.viewNotice && "" !== e.viewNotice && t.push(e.viewNotice),
-                        t = (0,
-                            r.map)(t, function(t) {
-                            return new o["default"]({
-                                host: t
-                            }).getUrl()
-                        }),
-                        (0,
-                            p.unique)(t)
-                }
-                ,
-                this.getWinNotice = function() {
-                    var t = this.getSettings().winNotice;
-                    return new o["default"]({
-                        host: t
-                    }).getUrl()
-                }
-                ,
-                this.getLanguage = function() {
-                    return t.common && t.common.pageLang || "1"
-                }
-                ,
-                this.isSSP = function() {
-                    var e = t.common && t.common.sspId;
-                    return null != e && 0 != e
-                }
-                ,
-            i.clickMacro && (0,
-                a.isString)(i.clickMacro) && !e.clickMacro && ((0,
-                n["default"])(window) || this.isSSP()) && (e.clickMacro = i.clickMacro),
-                this.getAbuseUrl = function() {
-                    return i.isInOverlay ? null : t.rtb.abuseLink
-                }
-                ,
-                this.getUniqueId = function() {
-                    return i.uniqueId
-                }
-                ,
-                this._visibilityTime = (0,
-                    c.calcVisibilityTime)(this.getSettings()),
-                this.getVisibilityTime = function() {
-                    return this._visibilityTime
-                }
-                ,
-                this.getBlockOpacity = function() {
-                    var e = t.visibilitySettings || {};
-                    return 1 === Number(e.expShow) ? 0 : 1
-                }
-        }
+        t.exports = function(t, e, i) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -23564,142 +23450,18 @@
             , E = v.VISIBLE_PORTION_BLOCK
             , T = v.VISIBLE_PORTION_BIG_BLOCK
             , R = i(590).rtb;
-        function L(t) {
-            this._isContainingSafeFrame = !1,
-                this._data = t.data || {},
-                this._isAlternativeCode = Boolean(this._data && this._data.rtb && this._data.rtb.debug),
-                this.dataSource = t.dataSource,
-                this.blockId = t.blockId,
-                this._checkVisibility = t.checkVisibility,
-                this._visibilityManager = t.visibilityManager,
-                this._nonce = t.nonce,
-                this._mainContId = "ya_partner_" + this.blockId + (t.pageNumber ? "-" + t.pageNumber : ""),
-                this._adUsageStorage = t.adUsageStorage,
-                this._visibilityConfirmed = !1;
-            var e = this._data.rtb || {};
-            this._protected = Boolean(e.html5),
-                this._basePath = this._data.rtb.basePath,
-                this._innerComponents = [],
-            t.renderParams && (this._confirmAtOnce = t.renderParams.confirmAtOnce,
-                this._confirmByHandler = t.renderParams.confirmByHandler,
-                this._horizontalAlign = t.renderParams.horizontalAlign),
-                this._testtag = new h.RtbTesttag({
-                    isApp: this.dataSource.isApp()
-                })
-        }
+        function L(t) {}
         L.prototype = {
-            render: function(t) {
-                (0,
-                    n.logRenderLabel)(this.dataSource.getUniqueId(), n.BlockRenderSteps.RtbBlockRenderInit);
-                var e = this.dataSource.getSettings();
-                this._size = this.dataSource.getSize(),
-                    this._horizontalAlign = this._horizontalAlign || e.horizontalAlign,
-                    this._container = (0,
-                        s.getContainer)(t),
-                "modernAdaptive" === e.name && (this._horizontalAlign = !0),
-                    e.displayDelayed ? ((0,
-                        n.stopLoggingTime)(this.dataSource.getUniqueId()),
-                        this._renderOnVisible(this._container)) : this._render(this._container)
-            },
-            _isAdtuneBig: function() {
-                return this._size[0] * this._size[1] >= 75e3
-            },
-            _createWrapper: function(t) {
-                var e = this.dataSource.getLanguage()
-                    , i = (0,
-                    l.getLangCode)(e)
-                    , n = R({
-                    id: this._mainContId,
-                    lang: i,
-                    html: y.format(t, {
-                        id: this._mainContId,
-                        sandbox: "",
-                        width: this._size[0],
-                        height: this._size[1]
-                    })
-                });
-                A.innerHTML(this._container, n),
-                    this._styleElement = this._appendStyles(this._isAdtuneBig())
-            },
-            destructor: function() {
-                this._clearComponents(),
-                this._styleElement && (y.dom.remove(this._styleElement),
-                    this._styleElement = null),
-                this._containerVisibilityChecker && this._containerVisibilityChecker.stop(),
-                this._contentVisibilityChecker && this._contentVisibilityChecker.stop(),
-                this._visibilityConfirmer && this._visibilityConfirmer.stop(),
-                this._isContainingSafeFrame && this._destroySafeFrame(),
-                this._container && (0,
-                    _.clearHTML)(this._container)
-            },
-            _clearComponents: function() {
-                y.each(this._innerComponents, function(t) {
-                    t.destructor ? t.destructor() : t.destroy && t.destroy()
-                }),
-                    this._innerComponents = []
-            },
-            _initAdtune: function() {
-                if (Boolean(this.dataSource.getAbuseUrl()) && !this.dataSource.isApp()) {
-                    var t = y.dom.querySelector(".yap-rtb__adtune-button", this._container)[0];
-                    if (t) {
-                        var e = new k({
-                            class: "yap-rtb__adtune",
-                            language: this.dataSource.getLanguage(),
-                            isOldIE: !1,
-                            mod: "_round",
-                            size: this._isAdtuneBig() ? "L" : "M"
-                        });
-                        I.renderToNode(t, e),
-                            e.on("click:adtune", this._onClickAdtune, this),
-                            this._innerComponents.push(e),
-                            this._adtuneComponent = e
-                    }
-                }
-            },
-            _onClickAdtune: function() {
-                this._feedbackComponent ? this._feedbackComponent.isVisible() ? (this._feedbackComponent.hide(),
-                    this._adtuneComponent.enableTooltip()) : (this._feedbackComponent.show(),
-                    this._adtuneComponent.disableTooltip()) : (this._initFeedbackMenu(),
-                    this._feedbackComponent.show(),
-                    this._adtuneComponent.disableTooltip())
-            },
-            _initFeedbackMenu: function() {
-                var t = y.dom.querySelector(".yap-rtb__wrapper", this._container)[0]
-                    , e = new C({
-                    class: "yap-rtb__feedback",
-                    language: this.dataSource.getLanguage(),
-                    abuseUrl: this.dataSource.getAbuseUrl(),
-                    onReceivedFeedback: y.bind(this._onReceivedFeedback, this)
-                });
-                t.appendChild(I.render(e)),
-                    e.fitSize(),
-                    this._innerComponents.push(e),
-                    this._feedbackComponent = e
-            },
-            _onReceivedFeedback: function(t) {
-                this._adtuneComponent.destroy(),
-                    this.dataSource.abuseAd(t)
-            },
-            _appendStyles: function(t) {
-                var e = g.reset
-                    , i = g.rtb
-                    , n = g.adtune
-                    , o = "";
-                return y.each([e, i, n], function(e) {
-                    o += e({
-                        id: this._mainContId,
-                        settings: {
-                            bgColor: "#fff"
-                        },
-                        width: this._size[0],
-                        height: this._size[1],
-                        isBig: t,
-                        visibility: this.dataSource.getBlockOpacity(),
-                        horizontalAlign: this._horizontalAlign
-                    })
-                }, this),
-                    y.dom.appendStyle(o, this._nonce, this._container)
-            },
+            render: function(t) {},
+            _isAdtuneBig: function() {},
+            _createWrapper: function(t) {},
+            destructor: function() {},
+            _clearComponents: function() {},
+            _initAdtune: function() {},
+            _onClickAdtune: function() {},
+            _initFeedbackMenu: function() {},
+            _onReceivedFeedback: function(t) {},
+            _appendStyles: function(t) {},
             _IFRAME_REDIRECT_TPL: y.format(v.RtbIframe.CONTENT, {
                 head: y.browser.isFirefox ? "" : '<meta http-equiv="refresh" content="0;url=${url}">',
                 afterAll: "<script nonce=\"${nonce}\">window.location = '${url}';<\/script>"
@@ -23708,251 +23470,30 @@
                 head: '<base href="${baseURL}" target="_blank"/>',
                 body: "${html}"
             }),
-            _render: function(t) {
-                if ((0,
-                    n.logRenderLabel)(this.dataSource.getUniqueId(), n.BlockRenderSteps.RtbBlockRenderStart),
-                    this._isInPage())
-                    this.renderInPage(t);
-                else {
-                    this._createTemplate();
-                    var e = y.dom.querySelector(".yap-rtb__iframe", t)[0];
-                    (0,
-                        n.logRenderLabel)(this.dataSource.getUniqueId(), n.BlockRenderSteps.RtbBlockCreateWrapper),
-                        this._renderAd(e),
-                        (0,
-                            n.logRenderLabel)(this.dataSource.getUniqueId(), n.BlockRenderSteps.RtbBlockRenderAd),
-                        this._afterRender(e),
-                        (0,
-                            n.logRenderLabel)(this.dataSource.getUniqueId(), n.BlockRenderSteps.RtbBlockAfterRender)
-                }
-            },
-            _createTemplate: function() {
-                var t = this.dataSource.getHtml();
-                this._createWrapper(!t || this._isAlternativeCode && !(0,
-                    r.isTurboPage)(window) ? v.RtbIframe.TAG : "")
-            },
-            _renderAd: function(t) {
-                var e = this.dataSource.getHtml();
-                e && this._isAlternativeCode && !(0,
-                    r.isTurboPage)(window) ? this._renderAlternativeCode(t) : e ? this._renderSafeframe(t) : this._renderFromUrl(t)
-            },
-            _afterRender: function(t) {
-                this._initAdtune(),
-                this._confirmByHandler || this._createVisibilityConfirmation(t),
-                    this._createVisibilityChecker(t),
-                    this._visibilityManager.sendWinNotice()
-            },
-            _renderFromUrl: function(t) {
-                var e = {}
-                    , i = this.dataSource.getUrl()
-                    , n = this._IFRAME_REDIRECT_TPL;
-                a.urlCodeVersions.media && (e.mcodever = a.urlCodeVersions.media);
-                var o = {
-                    url: new w({
-                        host: y.addProtocol(i),
-                        params: y.extend({
-                            click_macro: this.dataSource.getSettings().clickMacro
-                        }, e)
-                    }).getUrl(),
-                    nonce: this._nonce || ""
-                }
-                    , r = t.getElementsByTagName("iframe")[0];
-                y.dom.setIframeHTML(r, y.format(n, o))
-            },
-            _renderAlternativeCode: function(t) {
-                var e = {}
-                    , i = this._IFRAME_HTML_TPL
-                    , n = new w({
-                    host: "https://" + window.location.host,
-                    params: y.extend({
-                        click_macro: this.dataSource.getSettings().clickMacro
-                    }, e)
-                });
-                a.urlCodeVersions.media && (e.mcodever = a.urlCodeVersions.media);
-                var o = {
-                    baseURL: n.getUrl(),
-                    html: this.dataSource.getHtml()
-                }
-                    , r = t.getElementsByTagName("iframe")[0];
-                y.dom.setIframeHTML(r, y.format(i, o))
-            },
-            _renderSafeframe: function(t) {
-                var e = this
-                    , i = "" + (0,
-                    u.getPreventMissClicksScript)() + this.dataSource.getHtml()
-                    , n = this.dataSource.getSize()
-                    , o = n[0]
-                    , r = n[1]
-                    , a = this._getSafeframeBasePath();
-                (0,
-                    d.initSafeframe)(window, t, {
-                    width: o,
-                    height: r,
-                    html: i,
-                    id: this._mainContId,
-                    protected: this._protected,
-                    basePath: a
-                }, void 0, void 0, function(t, i) {
-                    return e._handleSafeFrameErrors(t, i)
-                }),
-                    this._isContainingSafeFrame = !0
-            },
-            _getSafeframeBasePath: function() {
-                var t = {
-                    click_macro: this.dataSource.getSettings().clickMacro
-                };
-                return a.urlCodeVersions.media && (t.mcodever = a.urlCodeVersions.media),
-                    new w({
-                        host: this._protected ? this._basePath : "https://" + window.location.host,
-                        params: t
-                    }).getUrl()
-            },
-            _handleSafeFrameErrors: function(t, e) {
-                if ("error" === t) {
-                    try {
-                        var i = JSON.parse(e);
-                        p.logger.error(i, i.type)
-                    } catch (t) {
-                        p.logger.error(t, "UnknownSafeframeError")
-                    }
-                    this._contentVisibilityChecker && this._contentVisibilityChecker.stop()
-                }
-            },
-            _destroySafeFrame: function() {
-                (0,
-                    d.nukeSafeframe)(window, this._mainContId),
-                    this._isContainingSafeFrame = !1
-            },
-            renderInPage: function(t) {
-                var e = this
-                    , i = this._data.rtb
-                    , n = i.vastBase64
-                    , o = i.vast
-                    , r = i.width
-                    , a = i.height;
-                S(function(i) {
-                    e._rtbInPage = new i({
-                        vastBase64: n,
-                        vast: o,
-                        width: r,
-                        height: a,
-                        blockId: e.blockId,
-                        renderOnVisible: !0,
-                        backgroundScale: [1, -1],
-                        encodeStyles: !0,
-                        settings: e.dataSource.getSettings()
-                    }),
-                        I.renderToNode(t, e._rtbInPage),
-                        e._initAdtune(),
-                    e._confirmByHandler || e._createVisibilityConfirmation(t),
-                        e._createVisibilityCheckerInPage(t)
-                }, function(t) {
-                    return p.logger.error(t, "InPage bundle loading error")
-                })
-            },
-            _renderOnVisible: function(t) {
-                var e = this
-                    , i = this.dataSource.hasIntersectionVisibility()
-                    , n = b.protect("RTB container visible", function() {
-                    e._render(t)
-                });
-                this._containerVisibilityChecker = new x(t,n,{
-                    allowIntersectionObserver: i,
-                    delay: 0
-                })
-            },
-            _createVisibilityConfirmation: function(t) {
-                var e = (0,
-                    s.getVisibilityContainer)(t)
-                    , i = this.dataSource.hasIntersectionVisibility()
-                    , n = b.protect("visibility confirmer: rtb", this.confirmVisibility, this);
-                this._visibilityConfirmer = new x(e,n,{
-                    allowIntersectionObserver: i,
-                    portion: this.getVisiblePortion(e),
-                    delay: this.dataSource.getVisibilityTime()
-                }),
-                this._confirmAtOnce && (this._visibilityConfirmed = !0,
-                    this._visibilityConfirmer.confirm())
-            },
-            confirmVisibility: function() {
-                this._visibilityConfirmed = !0,
-                    this._visibilityManager.confirm({
-                        testtagProps: this._testtag.getProps(),
-                        renderSize: this.getBlockSize()
-                    })
-            },
-            isVisibilityConfirmed: function() {
-                return this._visibilityConfirmed
-            },
-            _createVisibilityCheckerInPage: function(t) {
-                var e = this
-                    , i = this.dataSource.hasIntersectionVisibility();
-                this._contentVisibilityChecker = new m.VisibilityChecker(t,function(t) {
-                        return e._rtbInPage.onVisible(t)
-                    }
-                    ,{
-                        allowIntersectionObserver: i,
-                        portion: this.getVisiblePortion(t)
-                    })
-            },
-            _createVisibilityChecker: function(t) {
-                var e = !1
-                    , i = (0,
-                    o.getNativeJSON)(window)
-                    , n = this.dataSource.hasIntersectionVisibility()
-                    , r = function(n) {
-                    e = n;
-                    try {
-                        var o = y.dom.querySelector("iframe", t);
-                        if (o && o[0] && o[0].contentWindow) {
-                            var r = i.stringify({
-                                action: "pcode:" + (e ? "visible" : "invisible")
-                            });
-                            o[0].contentWindow.postMessage(r, "*")
-                        }
-                    } catch (t) {
-                        0
-                    }
-                };
-                this._contentVisibilityChecker = new m.VisibilityChecker(t,r,{
-                    allowIntersectionObserver: n,
-                    portion: this.getVisiblePortion(t)
-                });
-                var a = setInterval(function() {
-                    return r(e)
-                }, m.DEFAULT_INTERVAL)
-                    , s = this._contentVisibilityChecker.stop;
-                this._contentVisibilityChecker.stop = function() {
-                    return clearInterval(a),
-                        s.apply(this, arguments)
-                }
-            },
-            getVisiblePortion: function(t) {
-                return (t && t.clientWidth || 0) * (t && t.clientHeight || 0) >= O ? T : E
-            },
-            isInViewport: function() {
-                return !!y.dom.querySelector("#" + this._mainContId) && y.dom.isInViewport(this._container, v.REFRESH_VIEWPORT_VISIBLE_PART)
-            },
-            _isInPage: function() {
-                var t = this._data.rtb
-                    , e = (t = void 0 === t ? {} : t).vastBase64
-                    , i = t.vast;
-                return Boolean(e || i)
-            },
-            getRtbData: function() {
-                return this._data.rtb
-            },
-            slideUp: function(t) {
-                (0,
-                    c.slideUp)(this._container, t)
-            },
-            getBlockSize: function() {
-                return (0,
-                    f.getElementRectSize)(this._container)
-            },
-            getTesttag: function() {
-                return this._testtag.toString()
-            }
+            _render: function(t) {},
+            _createTemplate: function() {},
+            _renderAd: function(t) {},
+            _afterRender: function(t) {},
+            _renderFromUrl: function(t) {},
+            _renderAlternativeCode: function(t) {},
+            _renderSafeframe: function(t) {},
+            _getSafeframeBasePath: function() {},
+            _handleSafeFrameErrors: function(t, e) {},
+            _destroySafeFrame: function() {},
+            renderInPage: function(t) {},
+            _renderOnVisible: function(t) {},
+            _createVisibilityConfirmation: function(t) {},
+            confirmVisibility: function() {},
+            isVisibilityConfirmed: function() {},
+            _createVisibilityCheckerInPage: function(t) {},
+            _createVisibilityChecker: function(t) {},
+            getVisiblePortion: function(t) {},
+            isInViewport: function() {},
+            _isInPage: function() {},
+            getRtbData: function() {},
+            slideUp: function(t) {},
+            getBlockSize: function() {},
+            getTesttag: function() {}
         },
             t.exports = L
     }
@@ -23965,27 +23506,14 @@
         }
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(602))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
         i(2),
             i(6),
             i(3),
             i(7)["default"];
-        t.exports = {
-            rtb: function(t) {
-                var e = [];
-                return e.push('<yatag class="yap-reset ', t.id, '"><yatag class="yap-rtb__wrapper"><yatag class="yap-rtb__iframe">', t.html, '</yatag><yatag class="yap-rtb__adtune-button"></yatag></yatag></yatag>'),
-                    e.join("")
-            }
-        }
+        t.exports = {}
     }
     , function(t, e, i) {
         "use strict";
@@ -23993,40 +23521,7 @@
             , o = i(8)
             , r = i(2)
             , a = i(3);
-        t.exports = function(t, e, i) {
-            var s, l, p = r.genRnd(), c = a.protect("JSONP onLoadError", function() {
-                Ya[p] && (Ya[p]("{}"),
-                        Ya[p] = function() {}
-                )
-            }), d = a.setProtectedTimeout(c, 15e3);
-            Ya[p] = function(t) {
-                l = !0,
-                    window.clearTimeout(d);
-                var e = {
-                    common: {}
-                };
-                try {
-                    delete Ya[p],
-                        r.extend(e, new Function("return " + t)())
-                } catch (e) {
-                    o.logger.error(new Error("JSONP parse::" + e.message + "::" + t), "JSONPParse_" + e.name)
-                }
-                a.protect("JSONP callback", function() {
-                    i(e),
-                        (0,
-                            n.sendResourceInfo)(),
-                    s && r.dom.remove(s)
-                })()
-            }
-                ,
-                t.appendParams("callback=Ya[" + p + "]"),
-            (s = r.dom.addScript(t.getUrl(), !Ya.Context._asyncModeOn)) && (s.onerror = c,
-                    s.onload = function() {
-                        l || (window.clearTimeout(d),
-                            d = a.setProtectedTimeout(c, 1e3))
-                    }
-            )
-        }
+        t.exports = function(t, e, i) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -24073,246 +23568,25 @@
                 this._refresh = !1
         }
         I.prototype = {
-            render: function(t, e, i, n) {
-                (0,
-                    m.logRenderLabel)(t.uniqueId, m.BlockRenderSteps.DirectRender),
-                n && (this._refresh = n);
-                var o = [t.searchPageNumber || "", t.searchText || ""].join("#")
-                    , r = "common:" + (t.blockId || t.renderTo)
-                    , a = this._getManager(r + "#" + o, t.pageNumber, t.pageId);
-                !Ya.Context._asyncModeOn || t.forcedSyncMode || p.isSsSkipToken ? this._renderSync(a, t, e, i) : this._renderAsync(a, t, e, i),
-                    w.hitOnce(t.pageId, t.bundle)
-            },
-            _getManager: function(t, e, i) {
-                var n = t + "#" + (e || "") + ":" + i;
-                return n in this._managers || (this._managers[n] = new y(!0,{
-                    onAdAbused: this._handleAdAbused.bind(this)
-                })),
-                    this._managers[n]
-            },
-            getBlocksToRerender: function() {
-                var t = [];
-                return x.forOwn(this._managers, function(e) {
-                    var i = e.getBlocksToRerender();
-                    i.length > 0 && (t = t.concat(i),
-                        e.resetTimeout())
-                }),
-                    t
-            },
-            _renderAsync: function(t, e, i, n) {
-                var o = this;
-                e.isInQueue = !0,
-                    this._advManager.queue.add(function(r) {
-                        o._loadData(t, e, i, n, r)
-                    })
-            },
-            _renderSync: function(t, e, i, n) {
-                window.yandex_ad_is_displayed = !0,
-                    e.isInQueue = !1,
-                    this._loadData(t, e, i, function() {
-                        window.yandex_ad_is_displayed = !1,
-                            n()
-                    }, f.noop)
-            },
-            _loadData: function(t, e, i, n, c) {
-                if (e.data)
-                    return (0,
-                        a.saveBundleType)(e.data),
-                        void this._parseData(e.data, t, e, i, n, c);
-                if (!t.dataCanReload() && "stripe" !== e.product)
-                    return (0,
-                        a.saveBundleType)(e.bundle),
-                        void this._render(t, e, i, n, c);
-                (0,
-                    m.logRenderLabel)(e.uniqueId, m.BlockRenderSteps.LoadInit);
-                var d = this
-                    , f = k.getRenderId(e)
-                    , h = (0,
-                    o.getAdUsageStorage)(e)
-                    , g = new r.DirectTesttag({
-                    adfoxexp: e.adfoxexp
-                })
-                    , y = this._getLayoutConfig(e, i);
-                (0,
-                    m.setBlockData)(e.uniqueId, {
-                    isFirstScreen: Boolean(y) && y.getIsFirstScreen()
-                }),
-                    _.loadDirect({
-                        testtag: g.toString(),
-                        pageId: e.pageId,
-                        blockImpId: e.blockImpId,
-                        skipBanner: h.getSkipBanner(e, t.getUsedIds(f)),
-                        ssSkipTokenLength: h.ssSkipTokenLength,
-                        statId: e.statId,
-                        partnerStatId: e.partnerStatId,
-                        grab: e.grab,
-                        searchText: e.searchText,
-                        searchPageNumber: e.searchPageNumber || 1,
-                        lang: e.lang,
-                        geo: e.geo,
-                        disableHighlight: e.disableHighlight,
-                        extParams: e.extParams,
-                        layoutConfig: y,
-                        additionalBanners: l.additionalBanners || e.additionalBanners || e.oldDirectSettings && e.oldDirectSettings.additional_banners || "",
-                        experimentId: (0,
-                            s["default"])() || p.ssSkipTokenExpId,
-                        refresh: this._refresh
-                    }, function(o) {
-                        (0,
-                            m.logRenderLabel)(e.uniqueId, m.BlockRenderSteps.LoadDone),
-                            u.logger.log({
-                                isInQueue: e.isInQueue,
-                                testtag: g
-                            }),
-                            (0,
-                                a.saveBundleType)(o),
-                            d._refresh = !1,
-                            d._parseData(o, t, e, i, n, c)
-                    })
-            },
-            _parseData: function(t, e, i, n, o, r) {
-                "stripe" === i.product ? r() : (e.setData(t),
-                n || (n = t.settings && t.settings[i.blockImpId] ? t.settings[i.blockImpId] : {},
-                    this._settingsCache[i.blockId] = n),
-                    this._render(e, i, n, o, r))
-            },
-            _render: function(t, e, i, n, o) {
-                this._getSettings(e, i, function(i) {
-                    t.render(e, i, n, {}),
-                        o()
-                })
-            },
-            _getSettings: function(t, e, i) {
-                if (e)
-                    i(e);
-                else if (this._settingsCache[t.blockId])
-                    i(this._settingsCache[t.blockId]);
-                else {
-                    var n = this;
-                    _.loadDirectSettings({
-                        pageId: t.pageId,
-                        blockImpId: t.blockImpId
-                    }, function(e) {
-                        var o = e[t.blockImpId];
-                        n._settingsCache[t.blockId] = o,
-                            i(o)
-                    })
-                }
-            },
-            _getLayoutConfig: function(t, e) {
-                var i = new n["default"](x.dom.querySelector("#" + t.renderTo));
-                if (i.set("ad_no", (0,
-                    o.getAdUsageStorage)(t).getCapturedCount()),
-                    e) {
-                    var r = b.getFormatByName(e.name);
-                    if (r) {
-                        i.set("limit", v.getLimit(r, e)),
-                            i.set("block", r.index);
-                        var a = -1 !== x.inArray([g.BlockTypes.HORIZONTAL, g.BlockTypes.VERTICAL, g.BlockTypes.GRID], r.type);
-                        if (!r.fixed && a) {
-                            var s = v.parse(r, x.extend(e));
-                            i.setTitle({
-                                font: s.fontSize,
-                                titlePercent: s.titleFontSizePercent,
-                                titleBold: 1 === s.titleFontSize
-                            })
-                        }
-                    }
-                }
-                return i
-            },
-            _handleAdAbused: function(t, e, i) {
-                var n = this;
-                if ((0,
-                    c.shouldSlideUp)(e, i)) {
-                    var o = k.getRenderId(e);
-                    t.slideUp(o, function() {
-                        var i = e.renderTo
-                            , o = e.onHide;
-                        0 === t.getBlocks().length && x.forOwn(n._managers, function(e, i) {
-                            e === t && (delete n._managers[i],
-                                e.destructor())
-                        });
-                        var r = x.dom.querySelector("#" + i);
-                        r && (0,
-                            d.removeNodeFromParent)(r),
-                        o && C(o) && o.call(window, i)
-                    })
-                }
-            }
+            render: function(t, e, i, n) {},
+            _getManager: function(t, e, i) {},
+            getBlocksToRerender: function() {},
+            _renderAsync: function(t, e, i, n) {},
+            _renderSync: function(t, e, i, n) {},
+            _loadData: function(t, e, i, n, c) {},
+            _parseData: function(t, e, i, n, o, r) {},
+            _render: function(t, e, i, n, o) {},
+            _getSettings: function(t, e, i) {},
+            _getLayoutConfig: function(t, e) {},
+            _handleAdAbused: function(t, e, i) {}
         },
             t.exports = I
     }
-    , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(664))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
-    }
-    , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(665))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
-    }
-    , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(666))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
-    }
-    , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(667))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
-    }
-    , function(t, e, i) {
-        var n, o, r = !1;
-        function a() {
-            n = [],
-                i.e(1).then(function() {
-                    o = i(668);
-                    for (var t = 0, e = n.length; t < e; t++)
-                        n[t].success(o);
-                    r = !1,
-                        n = null
-                }
-                    .bind(null, i)).catch(function() {
-                    for (var t = 0, e = n.length; t < e; t++)
-                        n[t].error.apply(this, arguments);
-                    r = !0,
-                        n = null
-                })
-        }
-        t.exports = function(t, e) {
-            e = e || function() {}
-                ,
-                o ? t(o) : (r && a(),
-                    n.push({
-                        success: t,
-                        error: e
-                    }))
-        }
-            ,
-            a()
-    }
+    , function(t, e, i) {}
+    , function(t, e, i) {}
+    , function(t, e, i) {}
+    , function(t, e, i) {}
+    , function(t, e, i) {}
 ]);
 
 
