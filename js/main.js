@@ -1019,178 +1019,33 @@
                 this.rgba = [0, 0, 0, 1],
                     this.set(t)
             }
-            return t.prototype.set = function(e) {
-                s(e) ? e = function(t) {
-                    var e = d(t);
-                    if (e)
-                        return [parseInt(e.substr(1, 2), 16), parseInt(e.substr(3, 2), 16), parseInt(e.substr(5, 2), 16), parseInt(e.substr(7, 2), 16) / 255];
-                    return null
-                }(e) : e instanceof t && (e = e.rgbaArray());
-                var i = e;
-                if (function(t) {
-                    if (!t || !l(t))
-                        return !1;
-                    if (!p(t.length, 3, 4))
-                        return !1;
-                    for (var e = 0; e < t.length; e++)
-                        if (!m(e, t[e]))
-                            return !1;
-                    return !0
-                }(i))
-                    for (var n = 0; n < i.length; n++)
-                        this.setChannel(n, i[n]);
-                return this
-            }
-                ,
-                t.prototype.setChannel = function(t, e) {
-                    m(t, e) && (t === a.RGBA_MODEL.ALPHA ? this.rgba[t] = Number(e.toPrecision(2)) : this.rgba[t] = e >> 0)
-                }
-                ,
-                t.prototype.setAlpha = function(t) {
-                    return this.setChannel(a.RGBA_MODEL.ALPHA, t),
-                        this
-                }
-                ,
-                t.prototype.toString = function() {
-                    return 1 !== this.rgba[a.RGBA_MODEL.ALPHA] ? this.rgbaString() : this.toHexString()
-                }
-                ,
-                t.prototype.toHexString = function() {
-                    return "#" + this.toHexArray().join("")
-                }
-                ,
-                t.prototype.rgbString = function() {
-                    return "rgb(" + this.rgbArray().join(",") + ")"
-                }
-                ,
-                t.prototype.rgbaString = function() {
-                    return "rgba(" + this.rgba.join(",") + ")"
-                }
-                ,
-                t.prototype.toHexArray = function() {
-                    var t = this.rgba;
-                    return [u(t[a.RGBA_MODEL.RED]), u(t[a.RGBA_MODEL.GREEN]), u(t[a.RGBA_MODEL.BLUE])]
-                }
-                ,
-                t.prototype.rgbArray = function() {
-                    var t = this.rgba;
-                    return [t[a.RGBA_MODEL.RED], t[a.RGBA_MODEL.GREEN], t[a.RGBA_MODEL.BLUE]]
-                }
-                ,
-                t.prototype.rgbaArray = function() {
-                    return this.rgba.concat()
-                }
-                ,
-                t.prototype.luminosity = function() {
-                    for (var t = this.rgba, e = [], i = 0; i < 3; i++) {
-                        var n = t[i] / 255;
-                        e[i] = n <= .03928 ? n / 12.92 : Math.pow((n + .055) / 1.055, 2.4)
-                    }
-                    return .2126 * e[0] + .7152 * e[1] + .0722 * e[2]
-                }
-                ,
-                t.prototype.contrast = function(e) {
-                    var i = this.luminosity()
-                        , n = new t(e).luminosity();
-                    return i > n ? (i + .05) / (n + .05) : (n + .05) / (i + .05)
-                }
-                ,
-                t.prototype.brightness = function() {
-                    var t = this.rgba;
-                    return (299 * t[a.RGBA_MODEL.RED] + 587 * t[a.RGBA_MODEL.GREEN] + 114 * t[a.RGBA_MODEL.BLUE]) / 1e3
-                }
-                ,
-                t.prototype.isLight = function(t) {
-                    return this.brightness() > (t || 127)
-                }
-                ,
-                t.prototype.readable = function(e) {
-                    return new t(this.isLight(e) ? "#000" : "#fff")
-                }
-                ,
-                t.prototype.mix = function(e, i) {
-                    void 0 === i && (i = .5),
-                        i = 1 - i;
-                    var n = new t(e)
-                        , o = this.rgba
-                        , r = n.rgbaArray()
-                        , s = o[a.RGBA_MODEL.ALPHA]
-                        , l = r[a.RGBA_MODEL.ALPHA]
-                        , p = 2 * i - 1
-                        , c = s - l
-                        , d = ((p * c == -1 ? p : (p + c) / (1 + p * c)) + 1) / 2
-                        , u = 1 - d;
-                    return new t([d * o[a.RGBA_MODEL.RED] + u * r[a.RGBA_MODEL.RED], d * o[a.RGBA_MODEL.GREEN] + u * r[a.RGBA_MODEL.GREEN], d * o[a.RGBA_MODEL.BLUE] + u * r[a.RGBA_MODEL.BLUE], s * i + l * (1 - i)])
-                }
-                ,
-                t.prototype.greyscale = function() {
-                    var e = this.rgba
-                        , i = .3 * e[a.RGBA_MODEL.RED] + .59 * e[a.RGBA_MODEL.GREEN] + .11 * e[a.RGBA_MODEL.BLUE];
-                    return new t([i, i, i, e[a.RGBA_MODEL.ALPHA]])
-                }
-                ,
-                t.prototype.lighten = function(t) {
-                    var e = this.getHSL();
-                    return e[2] += 100 * t,
-                        this.clone().setHSL(e)
-                }
-                ,
-                t.prototype.darken = function(t) {
-                    var e = this.getHSL();
-                    return e[2] -= 100 * t,
-                        this.clone().setHSL(e)
-                }
-                ,
-                t.prototype.saturate = function(t) {
-                    var e = this.getHSL();
-                    return e[1] += e[1] * t,
-                        this.clone().setHSL(e)
-                }
-                ,
-                t.prototype.desaturate = function(t) {
-                    var e = this.getHSL();
-                    return e[1] -= e[1] * t,
-                        this.clone().setHSL(e)
-                }
-                ,
-                t.prototype.getHSL = function() {
-                    var t = this.rgba
-                        , e = t[0]
-                        , i = t[1]
-                        , n = t[2];
-                    return r.rgbToHsl(e, i, n)
-                }
-                ,
-                t.prototype.setHSL = function(t) {
-                    var e = t[0]
-                        , i = t[1]
-                        , o = t[2];
-                    return this.set(n.hslToRgb(e, i, o))
-                }
-                ,
-                t.prototype.getHSV = function() {
-                    var t = this.rgba
-                        , e = t[0]
-                        , i = t[1]
-                        , n = t[2];
-                    return r.rgbToHsv(e, i, n)
-                }
-                ,
-                t.prototype.setHSV = function(t) {
-                    var e = t[0]
-                        , i = t[1]
-                        , n = t[2];
-                    return this.set(o.hsvToRgb(e, i, n))
-                }
-                ,
-                t.prototype.clone = function() {
-                    return new t(this.rgba)
-                }
-                ,
-                t.prototype.average = function() {
-                    return (this.rgba[a.RGBA_MODEL.RED] + this.rgba[a.RGBA_MODEL.GREEN] + this.rgba[a.RGBA_MODEL.BLUE]) / 3
-                }
-                ,
+            return t.prototype.set = function(e) {},
+                t.prototype.setChannel = function(t, e) {},
+                t.prototype.setAlpha = function(t) {},
+                t.prototype.toString = function() {},
+                t.prototype.toHexString = function() {},
+                t.prototype.rgbString = function() {},
+                t.prototype.rgbaString = function() {},
+                t.prototype.toHexArray = function() {},
+                t.prototype.rgbArray = function() {},
+                t.prototype.rgbaArray = function() {},
+                t.prototype.luminosity = function() {},
+                t.prototype.contrast = function(e) {},
+                t.prototype.brightness = function() {},
+                t.prototype.isLight = function(t) {},
+                t.prototype.readable = function(e) {},
+                t.prototype.mix = function(e, i) {},
+                t.prototype.greyscale = function() {},
+                t.prototype.lighten = function(t) {},
+                t.prototype.darken = function(t) {},
+                t.prototype.saturate = function(t) {},
+                t.prototype.desaturate = function(t) {},
+                t.prototype.getHSL = function() {},
+                t.prototype.setHSL = function(t) {},
+                t.prototype.getHSV = function() {},
+                t.prototype.setHSV = function(t) {},
+                t.prototype.clone = function() {},
+                t.prototype.average = function() {},
                 t
         }();
         function d(t) {
@@ -9346,175 +9201,7 @@
                 e.join("")
         }
     }
-    , function(t, e, i) {
-        "use strict";
-        var n, o = (n = Object.setPrototypeOf || {
-                    __proto__: []
-                }instanceof Array && function(t, e) {
-                    t.__proto__ = e
-                }
-                || function(t, e) {
-                    for (var i in e)
-                        e.hasOwnProperty(i) && (t[i] = e[i])
-                }
-                    ,
-                    function(t, e) {
-                        function i() {
-                            this.constructor = t
-                        }
-                        n(t, e),
-                            t.prototype = null === e ? Object.create(e) : (i.prototype = e.prototype,
-                                new i)
-                    }
-            ), r = Object.assign || function(t) {
-                for (var e, i = 1, n = arguments.length; i < n; i++)
-                    for (var o in e = arguments[i])
-                        Object.prototype.hasOwnProperty.call(e, o) && (t[o] = e[o]);
-                return t
-            }
-        ;
-        e.__esModule = !0;
-        var a = i(0)
-            , s = i(17)
-            , l = i(39)
-            , p = i(22)
-            , c = i(5)
-            , d = i(63)
-            , u = i(12)
-            , m = i(30)
-            , f = i(546)
-            , h = i(140)
-            , g = function(t) {
-            function e() {
-                return null !== t && t.apply(this, arguments) || this
-            }
-            return o(e, t),
-                e.prototype.onInit = function() {
-                    this.mod = "tower",
-                    this.coerceSize || (this.coerceSize = e.coerceSize),
-                        t.prototype.onInit.call(this),
-                        this.initImage(),
-                        this.props.context.setParams({
-                            warningHeight: this.getWarningMinHeight()
-                        })
-                }
-                ,
-                e.prototype.getStyles = function() {
-                    return [f].concat(this.image ? [h] : [])
-                }
-                ,
-                e.prototype.initImage = function() {
-                    var t = this.width
-                        , e = this.minHeight;
-                    this.getImageSize = function() {
-                        return {
-                            width: t,
-                            height: t / p.MIN_IMAGE_RATIO
-                        }
-                    }
-                    ;
-                    var i = this.getPicture();
-                    if (i) {
-                        var n = i.width
-                            , o = i.height
-                            , r = p.coerceImageRatio(Math.max(n / o, 2 * t / e, 4 / 3));
-                        this.props.context.setParams({
-                            imageMinHeight: t / r,
-                            imageMaxHeight: t / p.MIN_IMAGE_RATIO
-                        })
-                    }
-                }
-                ,
-                e.prototype.calcFontSize = function(t) {
-                    var e = t.width
-                        , i = t.height;
-                    return s.getLimitedLinearFunction(2e4, 11, 24e4, 18)(e * i)
-                }
-                ,
-                e.prototype.createResourceTree = function(t) {
-                    var e = this.props.context.getTheme().multiple
-                        , i = this.getDataSource().isApp()
-                        , n = [t(["site-links"], 1, [t(["callouts"], 1)])]
-                        , o = function(n) {
-                        return c.map([[["button-big"], 1], [["button-medium"], 1], [["button-small"], e && !i ? 2 : 1]], function(e) {
-                            var i = e[0]
-                                , o = e[1];
-                            return t(i, o, n)
-                        })
-                    }
-                        , r = o([t(["body"], 1, n)])
-                        , a = [t(["title"], 2, r), t(["title-big"], 2, r)]
-                        , s = o([t(["body"], 1, [t(["title"], 1, n), t(["title-big"], 1, n)])]);
-                    return [t(["warning"], 1, [t(["image"], 2, e ? a : s), t(["logo-stub"], 1, a)])]
-                }
-                ,
-                e.prototype.renderContent = function(t) {
-                    var e = this.b_;
-                    return this.registerImageViewport("image"),
-                        a.create("yatag", {
-                            resourceId: t,
-                            class: e("__content")
-                        }, this.renderLogo(), this.renderLogoStub(), this.renderImage(), a.create("yatag", {
-                            class: e("__details")
-                        }, this.renderTitle(), this.renderTitleBig(), this.image ? this.renderTitle({
-                            class: e("__title", "__title_float")
-                        }) : null, this.renderBody(), this.renderSiteLinks(), this.renderCallouts(), this.renderButtons(), this.warning ? this.renderAge() : null), this.renderWarning(), this.warning ? null : this.renderAge())
-                }
-                ,
-                e.prototype.renderImage = function() {
-                    var t = this.b_
-                        , e = this.image;
-                    if (!e)
-                        return null;
-                    var i = {
-                        "min-height": e.minHeight,
-                        "max-height": e.maxHeight,
-                        "background-image": "url(" + e.src + ")"
-                    };
-                    return a.create(u, {
-                        resourceId: "image",
-                        href: this.props.adv.url,
-                        class: t("__link", "__image"),
-                        style: i
-                    }, this.renderAppIcon())
-                }
-                ,
-                e.prototype.renderButtons = function() {
-                    return this.getDataSource().hitFeatures.callToActionButton ? a.create(d, null, this.renderButtonBig(), this.renderButtonMedium(), this.renderButtonSmall()) : null
-                }
-                ,
-                e.coerceSize = p.createSizeCoercer({
-                    width: {
-                        min: 158,
-                        max: 1 / 0
-                    },
-                    height: {
-                        min: 158,
-                        max: 1 / 0
-                    },
-                    ratio: {
-                        min: .25,
-                        max: p.MIN_IMAGE_RATIO
-                    }
-                }),
-                e
-        }(l.AdvAdaptive);
-        e.AdvTower = g,
-            m.registerAdvRenderer("tower", function(t) {
-                return {
-                    coerceSize: t.adv.image ? g.coerceSize : function() {
-                        return {
-                            width: 0,
-                            height: 0
-                        }
-                    }
-                    ,
-                    render: function() {
-                        return a.create(g, r({}, t))
-                    }
-                }
-            })
-    }
+    , function(t, e, i) {}
     , function(t, e, i) {
         t.exports = function(t, e) {
             i.e(0).then(function() {
