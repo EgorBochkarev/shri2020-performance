@@ -21233,80 +21233,32 @@
         e.AdvZenCompact = g
     }
     , function(t, e) {
-        t.exports = function(t) {
-            var e = [];
-            return e.push(".", t.id, " .b9dbb7f91{left:15px !important;height:18px !important}.", t.id, " .b9dbb7f91 .caab3995f{line-height:18px !important}.", t.id, " .p291e1855{padding:5px !important}.", t.id, " .s4162e33f{position:absolute !important;bottom:0 !important}.", t.id, " .s4162e33f .e80e7f7e9{opacity:.47 !important}.", t.id, " .w5f53455{position:absolute !important;top:0 !important;left:0 !important;bottom:0 !important;right:0 !important;opacity:.8 !important}.", t.id, " .vc9c5f1f2{overflow:hidden !important}.", t.id, " .f98321b56{margin:10px 10px 10px 15px !important;float:right !important}.", t.id, " .rcdc4d693{position:absolute !important;height:100% !important;width:100% !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important;-webkit-flex-direction:column !important;-ms-flex-direction:column !important;flex-direction:column !important}.", t.id, " .p310cab94{-webkit-flex:1 0 auto !important;-ms-flex:1 0 auto !important;flex:1 0 auto !important}.", t.id, " .cf1ad74f7{margin:5px 15px !important;-webkit-flex-shrink:0 !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.", t.id, " .rc8aba673{margin:0 15px !important;padding-top:20px !important;box-sizing:border-box !important}.", t.id, " .p1240f99a{font-size:18px !important}.", t.id, " .a23e7493d{margin-top:7px !important;font-size:.78em !important}.", t.id, " .a6e70116a{margin-top:7px !important}.", t.id, " .k560dfa10{box-sizing:border-box !important;width:100% !important}.", t.id, " .q28e45eb3 .p1240f99a{font-size:15px !important}.", t.id, " .d8c523cb0{font-size:13px !important}.", t.id, " .h6921a31{font-size:12px !important}.", t.id, " .o4233e436{font-size:11px !important}.", t.id, " .j119c62b7 .a6e70116a{overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important}.", t.id, " .v750a40b4 .a6e70116a{white-space:normal !important}.", t.id, " .vef4a1e35 .a6e70116a{clear:right !important}"),
-                e.join("")
-        }
+        t.exports = function(t) {}
     }
     , function(t, e) {
-        t.exports = function(t) {
-            var e = [];
-            return e.push(".", t.id, " .faacc0e20{position:relative !important}.", t.id, " .o5ee038eb{display:none !important}"),
-                e.join("")
-        }
+        t.exports = function(t) {}
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(643))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(644))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(645))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(646))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
-        t.exports = function(t, e) {
-            i.e(0).then(function() {
-                t(i(647))
-            }
-                .bind(null, i)).catch(function() {
-                e && e.apply(this, arguments)
-            })
-        }
+        t.exports = function(t, e) {}
     }
     , function(t, e, i) {
         "use strict";
         var n, o = (n = Object.setPrototypeOf || {
                     __proto__: []
-                }instanceof Array && function(t, e) {
-                    t.__proto__ = e
-                }
-                || function(t, e) {
-                    for (var i in e)
-                        e.hasOwnProperty(i) && (t[i] = e[i])
-                }
+                }instanceof Array && function(t, e) {}
+                || function(t, e) {}
                 ,
                 function(t, e) {
                     function i() {
@@ -21317,276 +21269,32 @@
                             new i)
                 }
         ), r = i(0), a = i(141), s = i(22), l = i(246), p = i(5), c = i(7), d = i(525), u = i(31), m = i(51), f = i(115), h = i(11), g = i(265), _ = i(528), y = i(30), b = i(78).BorderTypes, v = i(553), x = function(t) {
-            function e() {
-                var e = null !== t && t.apply(this, arguments) || this;
-                return e.usedAdvs = [],
-                    e.onResize = l.rafDebounce(function(t, i) {
-                        var n = e.getRoot();
-                        n.setStyle({
-                            display: "none"
-                        }),
-                            e.sizeMeter.attach();
-                        var o = e.sizeMeter.getSize();
-                        if (i.width !== o.width || i.height !== o.height)
-                            return e.wasDisplayed = !1,
-                                e.isReady = !1,
-                                void e.update();
-                        e.sizeMeter.detach(),
-                            n.setStyle({
-                                display: ""
-                            })
-                    }),
-                    e
-            }
+            function e() {}
             return o(e, t),
-                e.prototype.doOnReady = function(t) {
-                    this.readyEventActions.push(t)
-                }
-                ,
-                e.prototype.doOnUnmount = function(t) {
-                    this.unmountEventActions.push(t)
-                }
-                ,
-                e.prototype.getTheme = function() {
-                    var t = this.settings;
-                    return {
-                        margin: t.horizontalAlign ? "auto" : "0",
-                        borderWidth: "1px",
-                        borderColor: new u.Color(t.borderColor || "#ebebeb"),
-                        borderRadius: t.borderRadius ? "4px" : "0"
-                    }
-                }
-                ,
-                e.prototype.onInit = function() {
-                    this.name = "yap-adaptive",
-                        t.prototype.onInit.call(this);
-                    var e = this.settings.borderType || b.AD
-                        , i = e === b.NONE ? 0 : 1;
-                    this.borderType = e,
-                        this.borderWidth = i,
-                        this.advSpacing = this.getAdvSpacing(e, i),
-                        this.advMinSquare = Number(this.settings.advMinSquare) || 35e3,
-                        this.logo = this.getLogo();
-                    var n = this.settings.skin || "row leaderboard square tower";
-                    this.advRenderers = (n + " no-image").split(/[\s,;]+/)
-                }
-                ,
-                e.prototype.getAdvSpacing = function(t, e) {
-                    return (t === b.COLLAPSE ? -1 : this.settings.advSpacing || 5) - 2 * (t === b.BLOCK ? e : 0)
-                }
-                ,
-                e.prototype.beforeRender = function(e) {
-                    var i = this;
-                    t.prototype.beforeRender.call(this, e),
-                    this.sizeMeter && this.sizeMeter.detach(),
-                        this.sizeMeter = g.createSizeMeter(this.props.renderToNode, this.settings, function(t, e) {
-                            return i.cutBlock(i.advList, t, e)
-                        }),
-                        this.sizeMeter.attach(),
-                        this.readyEventActions = [],
-                        this.unmountEventActions = [],
-                        this.doOnReady(function() {
-                            return i.sizeMeter.detach()
-                        })
-                }
-                ,
-                e.prototype.getBody = function() {
-                    var t = this
-                        , e = this.sizeMeter.getSize()
-                        , i = e.width
-                        , n = e.height;
-                    if (!this.isReady && 0 === i) {
-                        var o = this.getDataSource()
-                            , a = this.advList;
-                        return h.forEach(a, function(t) {
-                            return o.captureAd(t.adId)
-                        }),
-                            this.doOnReady(function() {
-                                return h.forEach(a, function(t) {
-                                    return o.releaseAd(t.adId)
-                                })
-                            }),
-                            this.doOnReady(function() {
-                                return t.update()
-                            }),
-                            null
-                    }
-                    this.doOnReady(function() {
-                        var i = t.getResourceById("body");
-                        i && i.setStyle("display", "");
-                        var n = function() {
-                            return t.onResize(e)
-                        };
-                        if (t.bind(window, "resize", n),
-                        "undefined" != typeof ResizeObserver) {
-                            var o = new ResizeObserver(n);
-                            t.doOnUnmount(function() {
-                                return o.disconnect()
-                            }),
-                                o.observe(t.props.renderToNode)
-                        }
-                    });
-                    var l, c = this.advList, u = this.settings, m = [1 / 0], f = function(e) {
-                        var i = t.sizeMeter.getSize();
-                        return i.height = (i.height + t.advSpacing) / e - t.advSpacing,
-                            i
-                    };
-                    switch (u.layout) {
-                        case "horizontal":
-                            l = !0;
-                            break;
-                        case "vertical":
-                            l = !1;
-                            break;
-                        case "grid":
-                            l = !0,
-                                m = _.calcGrid(c.length, this.cutBlock(c, !1, function() {
-                                    return f(1)
-                                }).length);
-                            break;
-                        default:
-                            l = i > n
-                    }
-                    for (var g = [], b = 0, v = m; b < v.length; b++) {
-                        var x = v[b]
-                            , w = g.length
-                            , k = c.slice(w, w + x);
-                        g.push.apply(g, this.cutBlock(k, l, function() {
-                            return f(m.length)
-                        }))
-                    }
-                    this.usedAdvs = p.map(g, function(t) {
-                        return t.adv
-                    });
-                    var C = new d.AdvContextProvider(this,l,u)
-                        , I = p.map(g, function(e) {
-                        var i = e.adv
-                            , n = e.getAdvSize
-                            , o = function() {
-                            var e = n();
-                            return e.width -= 2 * t.borderWidth,
-                                e.height -= 2 * t.borderWidth,
-                                e
-                        }
-                            , r = {
-                            adv: i,
-                            getSize: o,
-                            logo: c[0] === i ? t.logo : void 0,
-                            context: C.createAdvContext()
-                        }
-                            , a = t.advRenderers.map(function(t) {
-                            return y.getAdvRenderer(t, r)
-                        });
-                        return (0,
-                            s.selectMostFit(o(), a).render)()
-                    })
-                        , S = this.b_
-                        , A = {
-                        display: "none",
-                        "min-height": n,
-                        "min-width": i,
-                        "max-width": i
-                    };
-                    return r.create("yatag", {
-                        resourceId: "body",
-                        class: S("__body", "__body_rendering", "__body_" + (l ? "row" : "column"), "__body_border-" + this.borderType),
-                        style: A
-                    }, I)
-                }
-                ,
-                e.prototype.afterRender = function() {
-                    var e = this;
-                    t.prototype.afterRender.call(this),
-                        this.doOnReady(function() {
-                            var t = e.getResourceById("body");
-                            t && t.removeClass(e.b_("__body_rendering"))
-                        })
-                }
-                ,
-                e.prototype.renderLogo = function() {
-                    return null
-                }
-                ,
-                e.prototype.pushCss = function() {
-                    t.prototype.pushCss.call(this),
-                        this.pushStyles(v, this.getTheme())
-                }
-                ,
-                e.prototype.onReady = function() {
-                    t.prototype.onReady.call(this),
-                        m.flushQueue(this.readyEventActions, function(t) {
-                            return t()
-                        })
-                }
-                ,
-                e.prototype.onUnmount = function() {
-                    t.prototype.onUnmount.call(this),
-                        m.flushQueue(this.unmountEventActions, function(t) {
-                            return t()
-                        })
-                }
-                ,
-                e.prototype.createAdvList = function() {
-                    var e = t.prototype.createAdvList.call(this);
-                    return this.getDataSource().doSortByImages() && e.sort(function(t, e) {
-                        return Number(!t.image) - Number(!e.image)
-                    }),
-                        e
-                }
-                ,
-                e.prototype.getLogo = function() {
-                    var t = this.getDataSource()
-                        , e = t.getLanguage()
-                        , i = t.getTitle() || {}
-                        , n = c["default"]("ADVERTISMENT", e)
-                        , o = f.isAvailable() ? n : i.title || n;
-                    return {
-                        url: i.url,
-                        title: o
-                    }
-                }
-                ,
-                e.prototype.getUsedAdvs = function() {
-                    return this.usedAdvs
-                }
-                ,
-                e.prototype.cutBlock = function(t, e, i) {
-                    return _.cutBlock({
-                        advList: t,
-                        getBlockSize: i,
-                        isHorizontal: e,
-                        advMinSquare: this.advMinSquare,
-                        advMinWidth: 160,
-                        advMinHeight: 50,
-                        advSpacing: this.advSpacing,
-                        grows: "horizontal" === this.settings.measurer ? p.map(t, function() {
-                            return 1
-                        }) : p.map(t, function(t) {
-                            return t.image ? 3 : 2
-                        })
-                    })
-                }
-                ,
+                e.prototype.doOnReady = function(t) {},
+                e.prototype.doOnUnmount = function(t) {},
+                e.prototype.getTheme = function() {},
+                e.prototype.onInit = function() {},
+                e.prototype.getAdvSpacing = function(t, e) {},
+                e.prototype.beforeRender = function(e) {},
+                e.prototype.getBody = function() {},
+                e.prototype.afterRender = function() {},
+                e.prototype.renderLogo = function() {},
+                e.prototype.pushCss = function() {},
+                e.prototype.onReady = function() {},
+                e.prototype.onUnmount = function() {},
+                e.prototype.createAdvList = function() {},
+                e.prototype.getLogo = function() {},
+                e.prototype.getUsedAdvs = function() {},
+                e.prototype.cutBlock = function(t, e, i) {},
                 e
         }(a);
         t.exports = x
     }
     , function(t, e, i) {
         "use strict";
-        var n = Object.assign || function(t) {
-                for (var e = 1; e < arguments.length; e++) {
-                    var i = arguments[e];
-                    for (var n in i)
-                        Object.prototype.hasOwnProperty.call(i, n) && (t[n] = i[n])
-                }
-                return t
-            }
-            , o = Object.assign || function(t) {
-                for (var e, i = 1, n = arguments.length; i < n; i++)
-                    for (var o in e = arguments[i])
-                        Object.prototype.hasOwnProperty.call(e, o) && (t[o] = e[o]);
-                return t
-            }
+        var n = Object.assign || function(t) {}
+            , o = Object.assign || function(t) {}
         ;
         e.__esModule = !0;
         var r, a = i(37), s = i(31), l = i(526), p = i(51), c = i(9), d = i(5), u = i(527);
@@ -21594,197 +21302,22 @@
             t[t["INIT"] = 0] = "INIT",
                 t[t["READY"] = 1] = "READY"
         }(r || (r = {}));
-        var m = function(t) {
-            0
-        }
+        var m = function(t) {}
             , f = function() {
-            function t(t, e, i) {
-                this.block = t,
-                    this.isHorizontal = e,
-                    this.settings = i,
-                    this.contextList = [],
-                    this.state = r.INIT,
-                    this.getTheme = a.once(this.getTheme)
-            }
-            return t.prototype.doOnReady = function(t) {
-                this.block.doOnReady(t)
-            }
-                ,
-                t.prototype.getAdvContextList = function() {
-                    return this.contextList
-                }
-                ,
-                t.prototype.getState = function() {
-                    return this.state
-                }
-                ,
-                t.prototype.createAdvContext = function() {
-                    m();
-                    var t = new h(this);
-                    return this.contextList.push(t),
-                        t
-                }
-                ,
-                t.prototype.getTheme = function() {
-                    this.state = r.READY;
-                    var t = this.settings
-                        , e = this.isHorizontal
-                        , i = this.contextList
-                        , n = this.block.getTheme().borderColor
-                        , o = function(t) {
-                        return c.filter(function(t) {
-                            return d.map(i, function(e) {
-                                return t(e.params)
-                            })
-                        }(t), function(t) {
-                            return !isNaN(t)
-                        })
-                    }
-                        , a = i.length > 1
-                        , u = t.fontFamily ? t.fontFamily + ", " : ""
-                        , m = Number(t.fontSize) || 1
-                        , f = p.calcAvg.apply(void 0, o(function(t) {
-                        return t.fontSize
-                    }) || [0]) * m
-                        , h = new s.Color(t.bgColor || t.siteBgColor || "#f5f5f5").setAlpha(Number(t.bgColor || !t.siteBgColor))
-                        , g = new s.Color(t.textColor || h.readable())
-                        , _ = new s.Color(t.hoverColor || g)
-                        , y = Math.max.apply(Math, [0].concat(o(function(t) {
-                        return t.warningHeight
-                    })))
-                        , b = h.readable(200).readable()
-                        , v = b.readable().lighten(.6).setAlpha(.7)
-                        , x = t.headerBgColor ? new s.Color(t.headerBgColor) : new s.Color("#000").setAlpha(.25)
-                        , w = x.readable()
-                        , k = new s.Color(t.titleColor || g)
-                        , C = new s.Color(t.hoverColor || k)
-                        , I = new s.Color(t.sitelinksColor || g)
-                        , S = new s.Color(t.hoverColor || I)
-                        , A = t.linksUnderline ? .2 : 0
-                        , O = I.clone().setAlpha(A)
-                        , E = new s.Color(t.hoverColor || O).setAlpha(A)
-                        , T = new s.Color(t.urlBackgroundColor || g.clone().setAlpha(0))
-                        , R = new s.Color(t.urlBackgroundColor ? T.readable() : t.urlColor || g)
-                        , L = new s.Color(t.urlBackgroundColor ? R : t.hoverColor || R)
-                        , M = t.urlBackgroundColor ? T : R.clone().setAlpha(.5)
-                        , B = new s.Color(t.urlColor || g)
-                        , N = new s.Color(t.hoverColor || B)
-                        , D = new s.Color(t.urlBackgroundColor ? M : t.hoverColor || M).setAlpha(.5)
-                        , P = new s.Color(t.urlBackgroundColor || new s.Color("#000").setAlpha(.5))
-                        , z = P.readable()
-                        , F = t.urlBackgroundColor ? P : z.clone().setAlpha(.5)
-                        , H = Number(t.imageWidth) || 0
-                        , V = Number(t.imageHeight) || 0
-                        , j = t.imagePaddingLeft || "1em"
-                        , U = o(function(t) {
-                        return t.imageMinWidth
-                    })
-                        , W = U.length > 1 ? U : o(function(t) {
-                        return t.imageMaxWidth
-                    })
-                        , G = o(function(t) {
-                        return t.imageMinHeight
-                    })
-                        , K = G.length > 1 ? G : o(function(t) {
-                        return t.imageMaxHeight
-                    })
-                        , q = Math.max.apply(Math, [0].concat(U))
-                        , Y = Math.max.apply(Math, [0].concat(W))
-                        , X = Math.max.apply(Math, [0].concat(G))
-                        , Z = Math.max.apply(Math, [0].concat(K));
-                    return {
-                        multiple: a,
-                        isHorizontal: e,
-                        maxSmallAdvSquare: t.clickableBackground ? 1 / 0 : 25e3,
-                        fontFamily: u,
-                        fontSize: f,
-                        borderColor: n,
-                        bgColor: h,
-                        textColor: g,
-                        hoverColor: _,
-                        warningBgColor: b,
-                        warningTextColor: v,
-                        warningHeight: y,
-                        logoBgColor: x,
-                        logoTextColor: w,
-                        titleColor: k,
-                        titleHoverColor: C,
-                        siteLinksColor: I,
-                        siteLinksHoverColor: S,
-                        siteLinksUnderlineColor: O,
-                        siteLinksUnderlineHoverColor: E,
-                        buttonColor: R,
-                        buttonHoverColor: L,
-                        buttonBgColor: T,
-                        buttonBorderColor: M,
-                        buttonBorderHoverColor: D,
-                        buttonExtraColor: B,
-                        buttonExtraHoverColor: N,
-                        buttonAltBgColor: P,
-                        buttonAltColor: z,
-                        buttonAltBorderColor: F,
-                        imagePaddingLeft: j,
-                        getImageSize: function(t) {
-                            var e = t.width
-                                , i = t.height
-                                , n = (H > 1 ? H : H * e) || q || Y || e
-                                , o = (V > 1 ? V : V * i) || X || Z || i;
-                            return {
-                                minWidth: q || n,
-                                maxWidth: Y || n,
-                                minHeight: X || o,
-                                maxHeight: Z || o
-                            }
-                        },
-                        piTheme: l.getPIThemeFields(this.settings)
-                    }
-                }
-                ,
+            function t(t, e, i) {}
+            return t.prototype.doOnReady = function(t) {},
+                t.prototype.getAdvContextList = function() {},
+                t.prototype.getState = function() {},
+                t.prototype.createAdvContext = function() {},
+                t.prototype.getTheme = function() {},
                 t
         }();
         e.AdvContextProvider = f;
         var h = function() {
-            function t(t) {
-                this.provider = t,
-                    this.params = {},
-                    this.getTheme = a.once(this.getTheme)
-            }
-            return t.prototype.doOnReady = function(t) {
-                this.provider.doOnReady(t)
-            }
-                ,
-                t.prototype.setParams = function(t) {
-                    m(this.provider),
-                        n(this.params, t)
-                }
-                ,
-                t.prototype.getTheme = function() {
-                    var t = this.provider
-                        , e = this.params
-                        , i = t.getTheme()
-                        , n = i.isHorizontal
-                        , r = e.imageMinWidth
-                        , a = e.imageMaxWidth
-                        , s = e.imageMinHeight
-                        , l = e.imageMaxHeight
-                        , p = e.warningHeight
-                        , c = void 0 === p ? 0 : p
-                        , d = u.deleteUndefinedProperties(n ? {
-                        minWidth: r,
-                        maxWidth: a
-                    } : {
-                        minHeight: s,
-                        maxHeight: l
-                    });
-                    return o({}, i, {
-                        getImageSize: function(t) {
-                            return o({}, i.getImageSize(t), d)
-                        }
-                    }, n ? {} : {
-                        warningHeight: c
-                    })
-                }
-                ,
+            function t(t) {}
+            return t.prototype.doOnReady = function(t) {},
+                t.prototype.setParams = function(t) {},
+                t.prototype.getTheme = function() {},
                 t
         }()
     }
@@ -21792,41 +21325,12 @@
         "use strict";
         e.__esModule = !0;
         var n = i(31);
-        e.getPIThemeFields = function(t) {
-            var e = t.piSettings || {};
-            function i(t) {
-                var i = n.normalizeColorHash(e[t]);
-                return null !== i ? n.createColor(i).toString() : "INVALID"
-            }
-            var o = i("addition_bg_color")
-                , r = i("extra_bg_color")
-                , a = i("title_bg_color")
-                , s = i("addition_bg_color")
-                , l = i("body_text_color")
-                , p = i("extra_text_color")
-                , c = i("title_text_color");
-            return {
-                additionBgColor: s,
-                buttonInsideBgColor: i("button_bg_color"),
-                extraBgColor: r,
-                extraTextColor: p,
-                bodyTextColor: l,
-                siteLinkBgColor: o,
-                sitelinksColor: i("sitelinks_color"),
-                titleBgColor: a,
-                titleTextColor: c
-            }
-        }
+        e.getPIThemeFields = function(t) {}
     }
     , function(t, e, i) {
         "use strict";
         e.__esModule = !0,
-            e.deleteUndefinedProperties = function(t) {
-                var e = {};
-                for (var i in t)
-                    t.hasOwnProperty(i) && void 0 !== t[i] && (e[i] = t[i]);
-                return e
-            }
+            e.deleteUndefinedProperties = function(t) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -21834,49 +21338,9 @@
         var n = i(51)
             , o = i(81)
             , r = i(5);
-        e.cutBlock = function(t) {
-            var e = t.advList
-                , i = t.getBlockSize
-                , a = t.isHorizontal
-                , s = t.advMinSquare
-                , l = t.advSpacing
-                , p = t.advMinWidth
-                , c = t.advMinHeight
-                , d = t.grows
-                , u = i()
-                , m = u.width
-                , f = u.height
-                , h = Math.max(s, Math.max(m, p) * Math.max(f, c))
-                , g = Math.floor(Math.max(1, Math.min(h / s, a ? n.getSectionLimit(d, m + l, p + l) : n.getSectionLimit(d, f + l, c + l))))
-                , _ = (d = d.slice(0, g)).length
-                , y = o.reduce(d, function(t, e) {
-                return t + e
-            }, 0);
-            return r.map(d, function(t, n) {
-                return {
-                    adv: e[n],
-                    getAdvSize: function() {
-                        var e = i()
-                            , n = e.width
-                            , o = e.height
-                            , r = function(e) {
-                            return e * t / y - l * (_ - 1) / _
-                        };
-                        return a ? n = r(n) : o = r(o),
-                            {
-                                width: n,
-                                height: o
-                            }
-                    }
-                }
-            })
-        }
+        e.cutBlock = function(t) {}
             ,
-            e.calcGrid = function(t, e) {
-                for (var i = Math.ceil(Math.min(Math.sqrt(t), e)), n = t % i, o = (t - n) / i, r = [], a = 0; a < i; a++)
-                    r.push(o + (a < n ? 1 : 0));
-                return r
-            }
+            e.calcGrid = function(t, e) {}
     }
     , function(t, e, i) {
         var n = {
@@ -21889,18 +21353,7 @@
             "./AdvTower.tsx": 223,
             "./AdvTowerAvito.tsx": 551
         };
-        function o(t) {
-            return i(r(t))
-        }
-        function r(t) {
-            var e = n[t];
-            if (!(e + 1))
-                throw new Error("Cannot find module '" + t + "'.");
-            return e
-        }
-        o.keys = function() {
-            return Object.keys(n)
-        }
+        o.keys = function() {}
             ,
             o.resolve = r,
             t.exports = o,
