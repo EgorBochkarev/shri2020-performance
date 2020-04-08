@@ -166,9 +166,7 @@
             return null
         }
             ,
-            e.getBrowserName = function() {
-                return (e.isIE ? "msie" : e.isFirefox && "firefox") || e.isSafari && "safari" || e.isOpera && "opera" || e.isYaBrowser && "yabrowser" || e.isChrome && "chrome" || e.isUCBrowser && "ucbrowser" || "unknown"
-            }
+            e.getBrowserName = function() {}
             ,
             e.getDeviceName = function() {
                 return (e.isPhone ? "phone" : e.isMobile && "tablet") || "desktop"
@@ -312,69 +310,16 @@
             , r = i(200)
             , a = i(15)
             , s = o.createComponent([o.components.element, r], {
-            initProps: function(t) {
-                return t.tag = t.tag || "a",
-                    this.disabled = t.disabled || "a" !== t.tag,
-                    this.__base(t)
-            },
-            beforeRender: function(t) {
-                this.parentLink = this.findParentLink(),
-                    this.tag = this.disabled || this.parentLink ? "yatag" : "a",
-                    this.originProps = this.props,
-                    this.props = this.extractAttributes(),
-                    this.__base(t)
-            },
-            findParentLink: function() {
-                var t = this.getParentComponent()
-                    , e = null;
-                do {
-                    t instanceof s && (e = t),
-                    t && (t = t.getParentComponent())
-                } while (null === e && t);return null !== e && e.disabled ? null : e
-            },
-            extractAttributes: function() {
-                var t = this.originProps
-                    , e = (0,
-                    n.classNamesFactory)(t.classNames)
-                    , i = a({
-                    target: t.target || "_blank",
-                    class: e(t["class"], e(this.disabled ? "::disabled" : "::active"))
-                }, t);
-                return delete i.type,
-                    delete i.disabled,
-                    delete i.classNames,
-                (this.disabled || this.parentLink) && (delete i.target,
-                    delete i.href),
-                    i
-            },
-            onMount: function() {
-                this.disabled || (this.bind("click", this.onClick, this),
-                    this.bind("mouseenter", this.onMouseEnter, this),
-                    this.bind("mouseleave", this.onMouseLeave, this))
-            },
-            onMouseEnter: function() {
-                this.setHref(this.getLink())
-            },
-            onMouseLeave: function() {
-                this.setHref(null)
-            },
-            setHref: function(t) {
-                if (this.parentLink)
-                    this.parentLink.setHref(t);
-                else {
-                    var e = t || this.getLink();
-                    this.setAttr("href", e)
-                }
-            },
-            onClick: function(t) {
-                this.parentLink || this.props.href || t.preventDefault(),
-                    t.targetComponent = this,
-                    this.fireEvent("click:link", t, this.props.type),
-                this.props.href && !t.defaultPrevented && this.fireEvent("open:link", t)
-            },
-            getLink: function() {
-                return this.originProps.href || ""
-            }
+            initProps: function(t) {},
+            beforeRender: function(t) {},
+            findParentLink: function() {},
+            extractAttributes: function() {},
+            onMount: function() {},
+            onMouseEnter: function() {},
+            onMouseLeave: function() {},
+            setHref: function(t) {},
+            onClick: function(t) {},
+            getLink: function() {}
         });
         t.exports = s
     }
@@ -387,13 +332,7 @@
     }
     , function(t, e, i) {
         "use strict";
-        var n = Object.assign || function(t) {
-                for (var e, i = 1, n = arguments.length; i < n; i++)
-                    for (var o in e = arguments[i])
-                        Object.prototype.hasOwnProperty.call(e, o) && (t[o] = e[o]);
-                return t
-            }
-        ;
+        var n = Object.assign;
         e.__esModule = !0;
         var o, r, a = i(26), s = {};
         !function(t) {
@@ -454,63 +393,10 @@
             c[r.ComponentBlockRenderComplete] = 1,
             c[r.DirectManagerBlockRendered] = 1,
             c);
-        e.logRenderLabel = function(t, e) {
-            s[t] || (s[t] = {
-                timing: {},
-                data: {},
-                canLog: !0
-            }),
-                s[t].timing[e] = Date.now()
-        }
-            ,
-            e.stopLoggingTime = function(t) {
-                s[t] && (s[t].canLog = !1)
-            }
-            ,
-            e.setBlockData = function(t, e) {
-                s[t] || (s[t] = {
-                    timing: {},
-                    data: {
-                        oldBlock: !1
-                    },
-                    canLog: !0
-                }),
-                    s[t].data = n({}, s[t].data, e)
-            }
-            ,
-            e.getJsTracerObject = function(t) {
-                var e;
-                return t in s && "110"in (e = s[t]).timing && e.canLog ? {
-                    tags: function(t) {
-                        var e, i = {
-                            totalInit: 0,
-                            totalData: 0,
-                            totalRender: 0,
-                            total: 0
-                        };
-                        if (t.data.product === o.ComponentDirectSync) {
-                            var n = t.timing["100"];
-                            t.timing["100"] = t.timing["110"],
-                                t.timing["110"] = n
-                        }
-                        for (var r = a.getObjectKeys(t.timing).sort(function(t, e) {
-                            return t - e
-                        }), s = 0; s < r.length; s++) {
-                            var l = t.timing[r[s]] || 0;
-                            if (e) {
-                                var p = l - e;
-                                e = l,
-                                    i[r[s]] = p,
-                                    r[s]in d ? i.totalInit += p : r[s]in u ? i.totalData += p : r[s]in m && (i.totalRender += p),
-                                    i.total += p
-                            } else
-                                e = l
-                        }
-                        return i
-                    }(s[t]),
-                    data: s[t].data
-                } : null
-            }
+        e.logRenderLabel = function(t, e) {},
+        e.stopLoggingTime = function(t) {},
+        e.setBlockData = function(t, e) {},
+        e.getJsTracerObject = function(t) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -536,53 +422,13 @@
         "use strict";
         e.__esModule = !0;
         var n = i(9);
-        e.getLinearFunction = function(t, e, i, n) {
-            var o = (e - n) / (t - i)
-                , r = e - o * t;
-            return function(t) {
-                return o * t + r
-            }
-        }
-            ,
+        e.getLinearFunction = function(t, e, i, n) {},
             e.getLimitFunction = function(t, e) {
-                return function(i) {
-                    return Math.max(t, Math.min(i, e))
-                }
-            }
-            ,
-            e.getLimitedLinearFunction = function(t, i, n, o) {
-                var r = e.getLinearFunction(t, i, n, o)
-                    , a = e.getLimitFunction(i, o);
-                return function(t) {
-                    var e = r(t);
-                    return a(e)
-                }
-            }
-            ,
-            e.getItemWithMaxWeight = function(t, e) {
-                for (var i, n = -1 / 0, o = 0, r = t; o < r.length; o++) {
-                    var a = r[o]
-                        , s = e(a);
-                    s >= n && (n = s,
-                        i = a)
-                }
-                return i
-            }
-            ,
-            e.getBestCoverElement = function(t, i) {
-                var o = n.filter(i, function(e) {
-                    return e.height >= t.height && e.width >= t.width
-                })
-                    , r = t.width / t.height
-                    , a = e.getItemWithMaxWeight(o, function(t) {
-                    var e = t.width * t.height
-                        , i = t.width / t.height;
-                    return -e * Math.max(r / i, i / r)
-                });
-                return a || (a || e.getItemWithMaxWeight(i, function(e) {
-                    return Math.min(e.width, t.width) * Math.min(e.height, t.height)
-                }))
-            }
+                return function(i) {}
+            },
+            e.getLimitedLinearFunction = function(t, i, n, o) {},
+            e.getItemWithMaxWeight = function(t, e) {},
+            e.getBestCoverElement = function(t, i) {}
     }
     , function(t, e, i) {
         "use strict";
@@ -20973,13 +20819,8 @@
         "use strict";
         var n, o = (n = Object.setPrototypeOf || {
                     __proto__: []
-                }instanceof Array && function(t, e) {
-                    t.__proto__ = e
-                }
-                || function(t, e) {
-                    for (var i in e)
-                        e.hasOwnProperty(i) && (t[i] = e[i])
-                }
+                }instanceof Array && function(t, e) {}
+                || function(t, e) {}
                 ,
                 function(t, e) {
                     function i() {
@@ -21003,231 +20844,16 @@
             , f = i(222)
             , h = i(517)
             , g = function(t) {
-            function e() {
-                return null !== t && t.apply(this, arguments) || this
-            }
+            function e() {}
             return o(e, t),
-                e.prototype.beforeRender = function() {
-                    this.palette = a.getCssVariables(this.props.settings),
-                        t.prototype.beforeRender.call(this)
-                }
-                ,
-                e.prototype._render = function(t, e, i) {
-                    var n = e.adv
-                        , o = e.settings
-                        , a = e.width
-                        , s = e.height
-                        , c = this.getDataSource()
-                        , f = n.domain
-                        , h = this.getImageSize()
-                        , g = n.image;
-                    return g && (this.picture = g.getFitting(h.width, h.height, 0)),
-                        this.contentHeight = s - (p.hasWarning(n) ? 40 : 5),
-                        r.create("yatag", {
-                            resourceId: "advComponent",
-                            "data-id": n.adId,
-                            "data-uniq-id": n.uniqId,
-                            class: t(t(), "_border-type_" + o.borderType, "_title-font_" + o.titleFontSize, e["class"], this.mod),
-                            style: {
-                                width: a,
-                                height: s
-                            }
-                        }, r.create(d, {
-                            class: t("__logo"),
-                            title: c.getTitle()
-                        }), r.create("svg", {
-                            height: "0",
-                            width: "0"
-                        }, r.create("defs", null, r.create("filter", {
-                            id: "svg-blur",
-                            x: "0",
-                            y: "0",
-                            style: "display: block;"
-                        }, r.create("feGaussianBlur", {
-                            in: "SourceGraphic",
-                            stdDeviation: "5"
-                        })), r.create("linearGradient", {
-                            id: "background-horizontal-gradient",
-                            x1: "0",
-                            y1: "0",
-                            x2: "100%",
-                            y2: "0"
-                        }, r.create("stop", {
-                            offset: "36%",
-                            "stop-color": "white",
-                            "stop-opacity": "1"
-                        }), r.create("stop", {
-                            offset: "40%",
-                            "stop-color": "white",
-                            "stop-opacity": "0.88"
-                        }), r.create("stop", {
-                            offset: "46%",
-                            "stop-color": "white",
-                            "stop-opacity": "0.68"
-                        }), r.create("stop", {
-                            offset: "49%",
-                            "stop-color": "white",
-                            "stop-opacity": "0.46"
-                        }), r.create("stop", {
-                            offset: "51%",
-                            "stop-color": "white",
-                            "stop-opacity": "0.3"
-                        }), r.create("stop", {
-                            offset: "55%",
-                            "stop-color": "white",
-                            "stop-opacity": "0.05"
-                        }), r.create("stop", {
-                            offset: "64%",
-                            "stop-color": "white",
-                            "stop-opacity": "0"
-                        })), r.create("linearGradient", {
-                            id: "image-horizontal-gradient",
-                            x1: "0",
-                            y1: "0",
-                            x2: "100%",
-                            y2: "0"
-                        }, r.create("stop", {
-                            offset: "50%",
-                            "stop-color": "white"
-                        }), r.create("stop", {
-                            offset: "100%",
-                            "stop-color": "black"
-                        }))), r.create("mask", {
-                            id: "background-horizontal-mask",
-                            maskUnits: "objectBoundingBox",
-                            maskContentUnits: "objectBoundingBox"
-                        }, r.create("rect", {
-                            x: "0",
-                            y: "0",
-                            width: "1",
-                            height: "1",
-                            fill: "url(#background-horizontal-gradient)"
-                        })), r.create("mask", {
-                            id: "image-horizontal-mask",
-                            maskUnits: "objectBoundingBox",
-                            maskContentUnits: "objectBoundingBox"
-                        }, r.create("rect", {
-                            x: "0",
-                            y: "0",
-                            width: "1",
-                            height: "1",
-                            fill: "url(#image-horizontal-gradient)"
-                        }))), r.create(u, {
-                            class: t("__bg"),
-                            picture: this.picture
-                        }, r.create("yatag", {
-                            class: t("__bg-image")
-                        }, r.create("svg", {
-                            height: "100%",
-                            width: "100%"
-                        }, r.create("rect", {
-                            class: t("__bg-rect"),
-                            height: "100%",
-                            width: "100%",
-                            mask: "url(#image-horizontal-mask)"
-                        }))), r.create(l, {
-                            href: n.url,
-                            class: t("__body")
-                        }, r.create("yatag", {
-                            class: t("__section")
-                        }, r.create("yatag", {
-                            class: t("__content-row"),
-                            style: {
-                                height: this.contentHeight
-                            }
-                        }, this.picture ? r.create(m, {
-                            resourceId: "picture",
-                            class: t("__picture"),
-                            href: n.clickImageUrl,
-                            picture: this.picture,
-                            size: h
-                        }) : null, r.create("yatag", {
-                            class: t("__content"),
-                            resourceId: "content",
-                            style: {
-                                height: this.contentHeight
-                            }
-                        }, r.create(i.Title, {
-                            class: t("__title"),
-                            mod: "_inline",
-                            adv: n
-                        }), f ? r.create("yatag", {
-                            class: t("__domain-row")
-                        }, r.create(i.Age, {
-                            class: t("__age"),
-                            mod: "_inline",
-                            age: n.age
-                        }), r.create(i.Domain, {
-                            class: t("__domain"),
-                            nofavicon: !0,
-                            nopath: !0,
-                            adv: n
-                        })) : r.create(i.Container, null, "\xa0", r.create(i.Age, {
-                            class: t("__age"),
-                            mod: "_inline _size_s",
-                            age: n.age
-                        })), r.create(i.Body, {
-                            class: t("__body"),
-                            adv: n
-                        }))), r.create("yatag", {
-                            class: t("__warning-row")
-                        }, r.create(i.Warning, {
-                            class: t("__warning"),
-                            adv: n
-                        }))))), this.renderAdtune({
-                            mod: "_round-flat",
-                            size: "S"
-                        }), this.renderFeedback())
-                }
-                ,
-                e.prototype.getImageSize = function() {
-                    return {
-                        width: 90,
-                        height: 1 / 0
-                    }
-                }
-                ,
-                e.prototype.afterRender = function() {
-                    this.content = this.getResourceById("content"),
-                        this.advComponent = this.getResourceById("advComponent"),
-                        t.prototype.afterRender.call(this)
-                }
-                ,
-                e.prototype.pushCss = function() {
-                    t.prototype.pushCss.call(this),
-                        this.pushStyles(f, this.palette),
-                        this.pushStyles(h, this.palette)
-                }
-                ,
-                e.prototype.onMount = function() {
-                    t.prototype.onMount.call(this),
-                        this.removeOverflow(),
-                        this.addHoverListener()
-                }
-                ,
-                e.prototype.addHoverListener = function() {
-                    var t = this
-                        , e = this.advComponent.getElement();
-                    if (e) {
-                        var i = this.b_("_hovered");
-                        this.bind(e, "mouseenter", function() {
-                            return t.advComponent.addClass(i)
-                        }),
-                            this.bind(e, "mouseleave", function() {
-                                return t.advComponent.removeClass(i)
-                            })
-                    }
-                }
-                ,
-                e.prototype.removeOverflow = function() {
-                    var t = this.b_
-                        , e = [t("_scale_1"), t("_scale_2"), t("_scale_3"), t("_scale_4"), t("_scale_5")]
-                        , i = this.props.height;
-                    return i && i >= 160 && (e.push(t("_scale_6")),
-                    this.picture && this.contentHeight - this.picture.height < 30 || e.push(t("_scale_7"))),
-                        c(this.content, e)
-                }
-                ,
+                e.prototype.beforeRender = function() {},
+                e.prototype._render = function(t, e, i) {},
+                e.prototype.getImageSize = function() {},
+                e.prototype.afterRender = function() {},
+                e.prototype.pushCss = function() {},
+                e.prototype.onMount = function() {},
+                e.prototype.addHoverListener = function() {},
+                e.prototype.removeOverflow = function() {},
                 e
         }(s);
         e.AdvZenCompact = g
