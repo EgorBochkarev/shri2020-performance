@@ -1,1 +1,0 @@
-(function(w,d,n){var c=d.createElement('div');c.style.display='none';d.body.appendChild(c)})(window,document)
